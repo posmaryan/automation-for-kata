@@ -58,10 +58,10 @@ driver.find_element_by_id(
 driver.find_element_by_id(
     "phone_mobile").send_keys("02178832788")
 # submit pembuatan akun
-# driver.find_element_by_xpath(
-#     "//button[@id='submitAccount']/span").click()
+driver.find_element_by_xpath(
+    "//button[@id='submitAccount']/span").click()
 # verifikasi apakah sudah berhasil automatic login atau belum, dengan men-specify konten "Welcome to ..."
-# driver.find_element_by_xpath(
-#     "//div[@id='center_column']/p").click()
+driver.find_element_by_xpath(
+    "//div[@id='center_column']/p").click()
 # close browser
 driver.quit()
