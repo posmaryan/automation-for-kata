@@ -20,7 +20,7 @@ passw.send_keys("asdasd123")
 # klik tombol sign in
 driver.find_element_by_xpath(
     "//button[@id='SubmitLogin']/span").click()
-# verifikasi apakah sudah berhasil atau belum, dengan men-specify konten "Welcome to ..."
+# verifikasi apakah sudah berhasil login atau belum, dengan men-specify konten "Welcome to ..."
 driver.find_element_by_xpath(
     "//div[@id='center_column']/p")
 # close browser
