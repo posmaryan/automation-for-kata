@@ -6,9 +6,43 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 
 chrome_options = Options()
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 driver = webdriver.Chrome(r'C:\Users\Posma Panggabean\PycharmProjects\chromedriver', options=chrome_options)
 driver.implicitly_wait(30)
+
+# test scenario verify alert invalid email
+driver.get(
+    "http://automationpractice.com/index.php?controller=authentication&back=my-account")
+# input email
+driver.find_element_by_id(
+    "email_create").send_keys("ryanhoward@mailinator@.com")
+# klik tombol create account
+driver.find_element_by_xpath(
+    "//button[@id='SubmitCreate']/span").click()
+# verify alert invalid email
+driver.find_element_by_xpath(
+    '//*[@id="create_account_error"]')
+
+# test scenario verify alert erros on sign up form
+driver.get(
+    "http://automationpractice.com/index.php?controller=authentication&back=my-account")
+# input email
+driver.find_element_by_id(
+    "email_create").send_keys("ryanhoward@mailinator.com")
+# klik tombol create account
+driver.find_element_by_xpath(
+    "//button[@id='SubmitCreate']/span").click()
+# mengisi first name dan last name
+driver.find_element_by_id(
+    "customer_firstname").send_keys("Ryan")
+driver.find_element_by_id(
+    "customer_lastname").send_keys("Howard")
+# submit pembuatan akun
+driver.find_element_by_xpath(
+    "//button[@id='submitAccount']/span").click()
+# verify alert
+alertFormSignUp = driver.find_element_by_xpath(
+    '//*[@id="center_column"]/div')
 
 # test scenario
 driver.get(
